@@ -1,0 +1,56 @@
+<!-- 用于学习掌握事件的捕获和冒泡机制 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>测试捕获和冒泡</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+      }
+      div {
+        width: 300px;
+        height: 300px;
+        background-color: #fff;
+      }
+      img {
+        width: 50%;
+        height: 50%;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <div id="div">
+      <img src="image.png" alt="示例图片" id="img" />
+    </div>
+    <script>
+      function onBody(event) {
+        event.stopPropagation(); //用于点击图片过程中，阻止事件捕获的向下传递，这样的话点击图片只会出现一个onBody的输出
+        console.log("事件在body被捕获");
+      }
+      function onDiv(event) {
+        console.log("事件在div被处理");
+      }
+      function onImg(event) {
+        // event.stopPropagation();//是否阻止冒泡
+        console.log("事件在img被处理");
+      }
+      window.onload = function () {
+        var aimg = document.getElementById("img");
+        aimg.addEventListener("click", onImg);
+        var aDiv = document.getElementById("div");
+        aDiv.addEventListener("click", onDiv);
+        var aBody = document.getElementById("body");
+        aBody.addEventListener("click", onBody, true); //第三个参数的含义是捕获的目标可以是其后代的事件
+      }; //输出结果为 onBody onImg onDiv
+      //   事件捕获结束后发生事件冒泡，捕获不常用，需要设置监听的第三个参数才能进行捕获，
+      // 捕获事件的节点不会再接受冒泡时的触发
+      // 即三阶段，事件捕获-》目标阶段-》冒泡阶段
+    </script>
+  </body>
+</html>

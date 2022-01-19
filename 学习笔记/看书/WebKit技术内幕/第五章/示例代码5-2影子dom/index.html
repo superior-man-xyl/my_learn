@@ -1,0 +1,26 @@
+<!-- 实验影子dom -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>影子dom</title>
+  </head>
+  <body>
+    <div id="div"></div>
+    <script>
+      window.onload = function () {
+        var adiv = document.getElementById("div");
+        // 创建影子dom的方法
+        var root = adiv.attachShadow({ mode: 'open' }); // mode="open"，那么它通过 elem.shadowRoot 属性被访问。
+        var shadowImg = document.createElement("img");
+        shadowImg.src = "image.png";
+        root.appendChild(shadowImg);
+        var shadowDiv = document.createElement("div");
+        shadowDiv.innerHTML = "this is a div from shadow dom";
+        root.appendChild(shadowDiv);
+      };
+    </script>
+  </body>
+</html>
