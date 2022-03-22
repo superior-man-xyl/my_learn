@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子项分组布局</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        /* 为什么要html和body都设置呢？因为下面的元素使用100%要向body索取宽度，而body的宽度要向html索取，body也默认没有高度的 */
+        .content {
+            width: 100%;
+            height: 100%;
+            /* 如果没有上面的html，body的设置这里的height是失效的 */
+            background-color: pink;
+            display: flex;
+            align-items: center;
+        }
+
+        .content div {
+            width: 6vw;
+            height: 6vw;
+            border-radius: 50%;
+            background-color: skyblue;
+        }
+
+        /* 这个是比较方便的分组布局方式，也可以用div包裹，分成三组，然后使用justify-content，但是没有这种方式简单 */
+        .content div:nth-child(3) {
+            margin-right: auto;
+        }
+
+        /* 无论是:nth-child() or :nth-of-type() 效果都一样 */
+        .content div:nth-of-type(6) {
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>
