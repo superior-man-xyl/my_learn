@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex实现三列布局</title>
+    <style>
+        .content {
+            display: flex;
+        }
+
+        .middle {
+            flex: 1;
+            background-color: red;
+        }
+
+        .left,
+        .right {
+            flex: 0 0 100px;
+            background-color: blue;
+            opacity: 0.5;
+        }
+
+        .left {
+            order: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 使用flex可以非常简单快捷的实现三列布局，而且同时实现等高，顺序方面仅仅使用了个order -->
+    <div class="content">
+        <div class="middle">
+            <h4>middle</h4>
+            <p>middle content</p>
+        </div>
+        <div class="left">
+            <h4>left</h4>
+            <p>left content</p>
+        </div>
+        <div class="right">
+            <h4>right</h4>
+            <p>right content</p>
+        </div>
+    </div>
+</body>
+
+</html>

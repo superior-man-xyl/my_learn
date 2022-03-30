@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣杯布局浮动方法</title>
+    <style>
+        .header,
+        .footer {
+            /* height: 100px; */
+            /* 这里我们就没有指定高度，使用h4标签的默认高度，加上了border就能体现出来其高度了 */
+            border: 1px solid #333;
+            background-color: gray;
+            text-align: center;
+        }
+
+        .footer {
+            clear: both;
+            /* 清除浮动 */
+        }
+
+        .middle,
+        .left,
+        .right {
+            text-align: center;
+            float: left;
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
+            /* 用于实现三列等高 */
+        }
+
+        .container {
+            padding: 0 200px 0 200px;
+            /* 使middle的部分不会藏在left和right下，接着使用position定位使left和right移动到padding处 */
+            overflow: hidden;
+        }
+
+        .middle {
+            width: 100%;
+            background-color: red;
+        }
+
+        .left,
+        .right {
+            width: 200px;
+            background-color: blue;
+            opacity: 0.5;
+            position: relative;
+        }
+
+        .left {
+            margin-left: -100%;
+            /* 因为已经浮动，负边距可以使其移动到第一行 */
+            left: -200px;
+            /* 使用定位使其移动到padding的位置 */
+        }
+
+        .right {
+            margin-left: -200px;
+            /* 因为已经浮动，负边剧等于其自身可以移动到第一行的右边 */
+            right: -200px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        主要是浮动和负边距 
+        要求等高，并且先加载中间部分，也就是中间部分的盒子要在html中靠前
+    -->
+    <div class="header">
+        <h4>header</h4>
+    </div>
+    <div class="container">
+        <!-- 圣杯布局主要实现是在这里面 -->
+        <div class="middle">
+            <!-- 为了使中间的重要内容先被渲染，所以必须将其放在前面，接着再使用css的方法去使其居中 -->
+            <h4>middle</h4>
+            <p>middle content</p>
+        </div>
+        <div class="left">
+            <h4>left</h4>
+            <p>left content</p>
+        </div>
+        <div class="right">
+            <h4>right</h4>
+            <p>right content</p>
+        </div>
+    </div>
+    <div class="footer">
+        <h4>footer</h4>
+    </div>
+</body>
+
+</html>
