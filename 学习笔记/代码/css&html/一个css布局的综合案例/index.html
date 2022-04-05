@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>antd</title>
+    <link href="./static/logo.svg" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="g-ant">
+        <div class="g-ant__sider ">
+            <!-- g-ant__sider--closed用于编写侧边栏的折叠功能 -->
+            <!-- 这样适用类的话，就能很方便的去除样式和赋予样式，不需要该样式时就去除类名 -->
+            <div class="g-ant-sider__wrap g-ant-sider__wrap--fixed">
+                <!-- 通过一个g-ant-sider__wrap--fixed给其加固定定位，更加清楚的用于区分样式 -->
+                <div class="g-ant-sider__head">
+                    <a class="m-logo" href="javascript:void(0)">
+                        <img src="./static/logo.svg" alt="ant's logo">
+                        <h1>Ant Design Pro</h1>
+                    </a>
+                </div>
+                <ul class="g-ant-sider__main">
+                    <li class="m-menu m-menu--selected">
+                        <div class="m-menu__title">
+                            <i class="iconfont icon-car"></i>
+                            <span>Dashboard</span>
+                            <i class="iconfont icon-arrowup"></i>
+                        </div>
+                        <ul class="m-menu__sub">
+                            <li>分析台</li>
+                            <li class="m-menu__sub--selected">监控页</li>
+                            <li>工作台</li>
+                        </ul>
+                    </li>
+                    <li class="m-menu">
+                        <div class="m-menu__title">
+                            <i class="iconfont icon-printer"></i>
+                            <span>表单页</span>
+                            <i class="iconfont icon-arrowdown"></i>
+                        </div>
+                        <ul class="m-menu__sub">
+                            <li>基础表单</li>
+                            <li>分步表单</li>
+                            <li>高级表单</li>
+                        </ul>
+                    </li>
+                    <li class="m-menu">
+                        <div class="m-menu__title">
+                            <i class="iconfont icon-video"></i>
+                            <span>列表页</span>
+                            <i class="iconfont icon-arrowdown"></i>
+                        </div>
+                        <ul class="m-menu__sub">
+                            <li>搜索列表</li>
+                            <li>查询表格</li>
+                            <li>标准列表</li>
+                            <li>卡片列表</li>
+                        </ul>
+                    </li>
+                    <li class="m-menu">
+                        <div class="m-menu__title">
+                            <i class="iconfont icon-check-circle"></i>
+                            <span>详情页</span>
+                            <i class="iconfont icon-arrowdown"></i>
+                        </div>
+                        <ul class="m-menu__sub">
+                            <li>基础详情页</li>
+                            <li>高级详情页</li>
+                        </ul>
+                    </li>
+                    <li class="m-menu">
+                        <div class="m-menu__title">
+                            <i class="iconfont icon-user"></i>
+                            <span>结果页</span>
+                            <i class="iconfont icon-arrowdown"></i>
+                        </div>
+                        <ul class="m-menu__sub">
+                            <li>成功页</li>
+                            <li>失败页</li>
+                        </ul>
+                    </li>
+                    <li class="m-menu">
+                        <div class="m-menu__title">
+                            <i class="iconfont icon-error"></i>
+                            <span>结果页</span>
+                            <i class="iconfont icon-arrowdown"></i>
+                        </div>
+                        <ul class="m-menu__sub">
+                            <li>403</li>
+                            <li>404</li>
+                            <li>500</li>
+                        </ul>
+                    </li>
+                    <li class="m-menu">
+                        <div class="m-menu__title">
+                            <i class="iconfont icon-highlight"></i>
+                            <span>个人页</span>
+                            <i class="iconfont icon-arrowdown"></i>
+                        </div>
+                        <ul class="m-menu__sub">
+                            <li>个人中心</li>
+                            <li>个人设置</li>
+                        </ul>
+                    </li>
+                    <li class="m-menu">
+                        <div class="m-menu__title">
+                            <i class="iconfont icon-wrench"></i>
+                            <span>图形编辑器</span>
+                            <i class="iconfont icon-arrowdown"></i>
+                        </div>
+                        <ul class="m-menu__sub">
+                            <li>流程编辑器</li>
+                            <li>脑图编辑器</li>
+                            <li>拓扑编辑器</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="g-ant-sider__foot">
+                    <i class="iconfont icon-outdent u-bar"></i>
+                </div>
+            </div>
+        </div>
+        <div class="g-ant__main">
+            <div class="g-ant-main__head">
+                <!-- <div class="m-logo2">
+                    <img src="./static/logo.svg" alt="">
+                    <i class="iconfont icon-outdent u-bar"></i>
+                </div> -->
+                <i class="iconfont icon-idcard"></i>
+                <i class="iconfont icon-check-circle"></i>
+                <i class="iconfont icon-read"></i>
+                <i class="iconfont icon-user"></i>
+                <span>admin</span>
+                <i class="iconfont icon-error"></i>
+            </div>
+            <div class="g-ant-main__main">
+
+            </div>
+            <div class="g-ant-main__foot">
+                <p>
+                    <a href="#">Ant Design Pro</a>
+                    <a href="#"><i class="iconfont icon-github-fill"></i></a>
+                    <a href="#">Ant Design</a>
+                </p>
+                <p>
+                    <i class="iconfont icon-user"></i> 2022 Produced by Ant Group Experience Technology Department
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        let menuTitles = document.querySelectorAll('.m-menu__title');
+        // console.log(menuTitles);
+        for (let i = 0; i < menuTitles.length; i++) {
+            menuTitles[i].onclick = function () {
+                let menu = this.parentElement;
+                // console.log(menu);
+                menu.classList.toggle('m-menu--selected');
+                // 如果没有这个类名toggle会给添加，有的话还会给删除，这个行为可以由第二个参数来控制成为单向
+                //下面的功能是改变图标状态
+                if (menu.className.includes('m-menu--selected')) {
+                    //即表示为打开状态
+                    let arrow = this.querySelector('[class*="icon-arrow"]');
+                    arrow.className = 'iconfont icon-arrowup';
+                } else {
+                    // 即为关闭状态
+                    let arrow = this.querySelector('[class*="icon-arrow"]');
+                    arrow.className = 'iconfont icon-arrowdown';
+                }
+            }
+        }
+
+        let bar = document.querySelector('.u-bar');
+        let sider = document.querySelector('.g-ant__sider');
+        let menus = document.querySelectorAll('.m-menu');
+        bar.onclick = function () {
+            sider.classList.toggle('g-ant__sider--closed');
+            for (let i = 0; i < menus.length; i++) {
+                menus[i].classList.remove('m-menu--selected');
+                menus[i].querySelector('[class*="icon-arrow"]').className = 'iconfont icon-arrowdown';
+            }
+        }
+    </script>
+</body>
+
+</html>
