@@ -140,7 +140,56 @@
                 <i class="iconfont icon-error"></i>
             </div>
             <div class="g-ant-main__main">
-
+                <div class="index-main">
+                    <div class="m-card">
+                        <div class="m-card__title">
+                            活动实时交易情况
+                        </div>
+                        <div class="m-card__body">
+                            <div class="index-main__bg1"></div>
+                        </div>
+                    </div>
+                    <div class="m-card">
+                        <div class="m-card__title">
+                            活动情况预测
+                        </div>
+                        <div class="m-card__body">
+                            <div class="index-main__bg2"></div>
+                        </div>
+                    </div>
+                    <div class="m-card">
+                        <div class="m-card__title">
+                            券核效率
+                        </div>
+                        <div class="m-card__body">
+                            <div class="index-main__bg3"></div>
+                        </div>
+                    </div>
+                    <div class="m-card">
+                        <div class="m-card__title">
+                            各品类占比
+                        </div>
+                        <div class="m-card__body">
+                            <div class="index-main__bg4"></div>
+                        </div>
+                    </div>
+                    <div class="m-card">
+                        <div class="m-card__title">
+                            热门搜索
+                        </div>
+                        <div class="m-card__body">
+                            <div class="index-main__bg5"></div>
+                        </div>
+                    </div>
+                    <div class="m-card">
+                        <div class="m-card__title">
+                            资源剩余
+                        </div>
+                        <div class="m-card__body">
+                            <div class="index-main__bg6"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="g-ant-main__foot">
                 <p>
@@ -154,7 +203,67 @@
             </div>
         </div>
     </div>
+    <div class="m-setting">
+        <div class="m-setting__bar">
+            <i class="iconfont icon-setting"></i>
+        </div>
+        <div class="m-setting__item">
+            <h3>主题色</h3>
+            <ul class="m-setting-item__theme">
+                <li class="u-foxiaolan"><i class="iconfont icon-check"></i></li>
+                <li class="u-bomu"></li>
+                <li class="u-huoshan"></li>
+                <li class="u-rimu"></li>
+                <li class="u-mingqing"></li>
+                <li class="u-jiguanglv"></li>
+                <li class="u-jikelan"></li>
+                <li class="u-jiangzi"></li>
+            </ul>
+        </div>
+        <div class="u-divide"></div>
+        <div class="m-setting__item">
+            <h3>固定内容</h3>
+            <ul class="m-setting-item__toggle">
+                <li>
+                    <span>内容头部</span>
+                    <div class="u-switch j-head--fixed">
+                        <!-- j-head--fixed表示方便用于js操作 -->
+                        <div class="u-switch__handle"></div>
+                    </div>
+                </li>
+                <li>
+                    <span>侧边菜单</span>
+                    <div class="u-switch j-sider--fixed">
+                        <!-- 转换框里的圆 -->
+                        <div class="u-switch__handle"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="u-divide"></div>
+        <div class="m-setting__item">
+            <h3>显示内容</h3>
+            <ul class="m-setting-item__toggle">
+                <li>
+                    <span>内容头部</span>
+                    <div class="u-switch j-head--show">
+                        <div class="u-switch__handle"></div>
+                    </div>
+                </li>
+                <li>
+                    <span>侧边菜单</span>
+                    <div class="u-switch j-sider--show">
+                        <div class="u-switch__handle"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 打开设置后的遮罩层 -->
+    <div class="u-mask"></div>
     <script>
+        // 菜单的选中打开
+
         let menuTitles = document.querySelectorAll('.m-menu__title');
         // console.log(menuTitles);
         for (let i = 0; i < menuTitles.length; i++) {
@@ -176,6 +285,8 @@
             }
         }
 
+        // 侧边栏的收缩
+
         let bar = document.querySelector('.u-bar');
         let sider = document.querySelector('.g-ant__sider');
         let menus = document.querySelectorAll('.m-menu');
@@ -185,6 +296,68 @@
                 menus[i].classList.remove('m-menu--selected');
                 menus[i].querySelector('[class*="icon-arrow"]').className = 'iconfont icon-arrowdown';
             }
+        }
+
+        // 设置相关
+
+        /*皮肤颜色相关*/
+        let setting = document.querySelector('.m-setting');
+        let settingBar = document.querySelector('.m-setting__bar');
+        let themes = document.querySelectorAll('.m-setting-item__theme>li');
+        settingBar.onclick = function () {
+            setting.classList.toggle('m-setting--open'); //将类名插进
+            if (setting.className.includes('m-setting--open')) {
+                let icon = this.querySelector('i');
+                icon.className = 'iconfont icon-close';
+            } else {
+                let icon = this.querySelector('i');
+                icon.className = 'iconfont icon-setting';
+            }
+        }
+        for (let i = 0; i < themes.length; i++) {
+            themes[i].onclick = function () {
+                // 还原其他的
+                for (let i = 0; i < themes.length; i++) {
+                    themes[i].innerHTML = '';
+                }
+                this.innerHTML = '<i class="iconfont icon-check">';
+                // 获取颜色
+                let color = getComputedStyle(this).backgroundColor;
+                // 赋值颜色
+                document.documentElement.style.setProperty('--theme', color)
+            }
+        }
+
+        /*切换交互相关*/
+        let headFix = document.querySelector('.j-head--fixed');
+        let siderFix = document.querySelector('.j-sider--fixed');
+        let headShow = document.querySelector('.j-head--show');
+        let siderShow = document.querySelector('.j-sider--show');
+        let mainHead = document.querySelector('.g-ant-main__head');
+        let siderWrap = document.querySelector('.g-ant-sider__wrap');
+        let siderFoot = document.querySelector('.g-ant-sider__foot');
+
+        headFix.onclick = function () {
+            this.classList.toggle('u-switch--closed'); //给切换按钮加效果
+            mainHead.classList.toggle('g-ant-main__head--fixed');
+        }
+
+        siderFix.onclick = function () {
+            this.classList.toggle('u-switch--closed'); //给切换按钮加效果
+            siderWrap.classList.toggle('g-ant-sider__wrap--fixed');
+            // 我给加了个设定，取消固定时，也给取消收缩
+            sider.classList.remove('g-ant__sider--closed');
+            siderFoot.classList.toggle('g-ant-sider--unFoot')
+        }
+
+        headShow.onclick = function () {
+            this.classList.toggle('u-switch--closed'); //给切换按钮加效果
+            mainHead.classList.toggle('hide');
+        }
+
+        siderShow.onclick = function () {
+            this.classList.toggle('u-switch--closed'); //给切换按钮加效果
+            sider.classList.toggle('hide');
         }
     </script>
 </body>
