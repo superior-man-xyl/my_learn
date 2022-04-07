@@ -126,12 +126,14 @@
                 </div>
             </div>
         </div>
+        <div class="u-mask"></div>
         <div class="g-ant__main">
             <div class="g-ant-main__head">
-                <!-- <div class="m-logo2">
+                <!-- logo2用于适配移动端后调出菜单侧边栏 -->
+                <div class="m-logo2">
                     <img src="./static/logo.svg" alt="">
                     <i class="iconfont icon-outdent u-bar"></i>
-                </div> -->
+                </div>
                 <i class="iconfont icon-idcard"></i>
                 <i class="iconfont icon-check-circle"></i>
                 <i class="iconfont icon-read"></i>
@@ -287,7 +289,7 @@
 
         // 侧边栏的收缩
 
-        let bar = document.querySelector('.u-bar');
+        let bar = document.querySelector('.g-ant-sider__foot .u-bar');
         let sider = document.querySelector('.g-ant__sider');
         let menus = document.querySelectorAll('.m-menu');
         bar.onclick = function () {
@@ -358,6 +360,19 @@
         siderShow.onclick = function () {
             this.classList.toggle('u-switch--closed'); //给切换按钮加效果
             sider.classList.toggle('hide');
+        }
+
+        // 移动端适配下菜单的显示隐藏
+        let bar2 = document.querySelector('.m-logo2 .u-bar');
+        let mask = document.querySelector('.g-ant__sider + .u-mask');
+        bar2.onclick = function () {
+            //侧边栏给隐藏的情况下
+            if (!sider.className.includes('hide')) {
+                sider.classList.add('show')
+            }
+        }
+        mask.onclick = function () {
+            sider.classList.remove('show');
         }
     </script>
 </body>

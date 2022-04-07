@@ -405,6 +405,21 @@ button:-moz-focusring,
     margin-left: 12px;
 }
 
+.m-logo2 {
+    display: none;
+    /* 刚开始给它隐藏，满足响应式条件后再给其设置为flex */
+    align-items: center;
+    margin-right: auto;
+}
+
+.m-logo2>img {
+    width: 32px;
+}
+
+.m-logo2>i {
+    color: inherit;
+}
+
 .m-menu {
     color: #8c959e;
 }
@@ -644,3 +659,20 @@ button:-moz-focusring,
 }
 
 /*************通用响应式系统**************/
+@media(max-width: 992px) {
+    .m-logo2 {
+        display: flex;
+    }
+
+    .g-ant__sider {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 6;
+    }
+
+    .g-ant__sider:is(.show)+.u-mask {
+        display: block;
+    }
+}
