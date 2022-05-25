@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        function draw() {
+            let canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                let ctx = canvas.getContext('2d');
+                // 开始绘制
+                for (let i = 0; i < 10; i++) {
+                    ctx.lineWidth = i + 1;
+                    ctx.beginPath();
+                    ctx.moveTo(5 + i * 14, 5);
+                    ctx.lineTo(5 + i * 14, 140);
+                    ctx.stroke();
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas" width="150" height="150"></canvas>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>😀</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        function draw() {
+            let canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                let ctx = canvas.getContext('2d');
+                // 开始绘制😀
+                ctx.beginPath();
+                //描绘外圆
+                ctx.arc(50, 50, 50, 0, 2 * Math.PI, true);
+                //画左眼
+                ctx.moveTo(38, 33);//如果没有moveTo的画，则做不到间隔的断线，五官会有直线相连。想看到连续的线，可以移除调用的moveTo()。
+                ctx.arc(33, 33, 5, 0, 2 * Math.PI, true);
+                //画右眼
+                ctx.moveTo(71, 33);
+                ctx.arc(66, 33, 5, 0, 2 * Math.PI, true);
+                //画嘴
+                ctx.moveTo(85, 56);
+                ctx.arc(50, 56, 35, 0, Math.PI, false);
+                //描画路径
+                ctx.stroke();
+            }
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas" width="100" height="100"></canvas>
+</body>
+
+</html>

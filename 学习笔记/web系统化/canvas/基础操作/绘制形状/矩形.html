@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        function draw() {
+            let canvas1 = document.getElementById('canvas1');
+            if (canvas1.getContext) {//判断是否支持canvas上下文
+                let ctx1 = canvas1.getContext('2d');
+                ctx1.fillStyle = "rgb(200,0,0)";
+                ctx1.fillRect(25, 25, 100, 100);
+                ctx1.clearRect(45, 45, 60, 60);
+                ctx1.strokeRect(50, 50, 50, 50);
+                // fillRect()函数绘制了一个边长为100px的正方形。
+                // clearRect()函数从正方形的中心开始擦除了一个60*60px的正方形，
+                // 接着strokeRect()在清除区域内生成一个50*50的正方形边框。
+            }
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas1" width="200" height="200"></canvas>
+</body>
+
+</html>
