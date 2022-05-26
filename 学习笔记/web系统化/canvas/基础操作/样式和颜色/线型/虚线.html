@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="150" height="150"></canvas>
+    <script>
+        var ctx = document.getElementById('canvas').getContext('2d');
+        var offset = 0;
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.setLineDash([4, 2]);//setLineDash 方法接受一个数组，来指定线段与间隙的交替；setLineDash 方法接受一个数组，来指定线段与间隙的交替；
+            ctx.lineDashOffset = -offset;//设置启始偏移量,这里通过使用负号可以控制为顺时针旋转
+            ctx.strokeRect(10, 10, 100, 100)
+        }
+        function march() {
+            offset++;
+            if (offset > 16) {
+                offset = 0;
+            }
+            draw();
+            setTimeout(march, 30);
+        }
+        march();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            ctx.beginPath();
+            ctx.arc(75, 75, 30, 0, 2 * Math.PI, true);
+            ctx.arc(75, 75, 15, 0, 2 * Math.PI, true);
+            ctx.fill("evenodd"); // 奇偶规则
+            // ctx.fill("nonzero"); // 非零规则
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas" width="150" height="150"></canvas>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            ctx.shadowOffsetX = 8;
+            ctx.shadowOffsetY = 8;
+            // ctx.shadowOffsetY = 2;/shadowOffsetX 和 shadowOffsetY 用来设定阴影在 X 和 Y 轴的延伸距离
+            ctx.shadowBlur = 2;
+            //shadowBlur 用于设定阴影的模糊程度
+            ctx.shadowColor = "rgba(0,0,0,0.5)";
+            //shadowColor 是标准的 CSS 颜色值，用于设定阴影颜色效果，默认是全透明的黑色。
+            ctx.font = '75px Times New Roman';
+            ctx.fillStyle = 'Black';
+            ctx.fillText('阴影', 0, 75);
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas" width="150" height="150"></canvas>
+</body>
+
+</html>
