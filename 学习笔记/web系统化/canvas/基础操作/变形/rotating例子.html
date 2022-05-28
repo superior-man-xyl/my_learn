@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            ctx.translate(75, 75); //通过translate把原点改到画布中间
+            for (let i = 0; i < 6; i++) {
+                ctx.save(); //记录初始状态
+                ctx.fillStyle = 'rgb(' + (51 * i) + ',' + (255 - 51 * i) + ',255)';
+                for (let j = 0; j < i * 6; j++) {
+                    ctx.rotate(2 * Math.PI / (i * 6));// 通过旋转画布来生成圈
+                    ctx.beginPath();
+                    ctx.arc(0, i * 12.5, 5, 0, Math.PI * 2, true); //画小圆圈
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas" width="150" height="150"></canvas>
+</body>
+
+</html>
