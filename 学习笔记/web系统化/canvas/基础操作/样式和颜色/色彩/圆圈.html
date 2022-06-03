@@ -15,11 +15,19 @@
                 // 开始绘制
                 for (let i = 0; i < 6; i++) {
                     for (let j = 0; j < 6; j++) {
-                        ctx.strokeStyle = `rgb(${Math.floor(255 - 42.5 * i)},${Math.floor(255 - 42.5 * j)},0)`;
+                        let style = `rgb(${Math.floor(255 - 42.5 * i)},${Math.floor(255 - 42.5 * j)},0)`;
                         ctx.fillRect(i * 25, j * 25, 25, 25);
                         ctx.beginPath();
                         ctx.arc(12.5 + 25 * i, 12.5 + 25 * j, 10, 0, 2 * Math.PI, true);
-                        ctx.stroke();
+                        if(i%2!==0){
+                            ctx.fillStyle = style;
+                            ctx.fill();
+                            ctx.fillStyle = "#fff";
+                        }else{
+                            ctx.strokeStyle = style;
+                            ctx.stroke();
+                            ctx.strokeStyle = "#fff";
+                        }
                     }
                 }
             }

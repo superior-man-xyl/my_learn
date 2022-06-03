@@ -14,22 +14,18 @@
     <script>
         function draw() {
             var ctx = document.getElementById('canvas').getContext('2d');
-            // draw a simple rectangle, but scale it.
-            ctx.save();
-            ctx.scale(10, 3);
-            ctx.fillRect(1, 10, 10, 10);
-            ctx.restore();
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, 200, 200);
 
-            // mirror horizontally
-            ctx.scale(-1, 1);
-            ctx.font = '48px serif';
-            ctx.fillText('镜像', -135, 120);
+            ctx.globalCompositeOperation = "luminosity"; //全局合成操作
+            ctx.fillStyle = "blue";
+            ctx.fillRect(100, 100, 200, 200);
         }
     </script>
 </head>
 
 <body onload="draw()">
-    <canvas id="canvas" width="150" height="150"></canvas>
+    <canvas id="canvas" width="350" height="350"></canvas>
 </body>
 
 </html>
